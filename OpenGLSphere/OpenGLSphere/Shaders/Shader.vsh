@@ -17,6 +17,7 @@ uniform mat3 normalMatrix;
 void main()
 {
     vec3 eyeNormal = normalize(normalMatrix * normal);
+    // the light is hidden for this particular cube
     vec3 lightPosition = vec3(0.0, 0.0, 1.0);
     vec4 diffuseColor = vec4(0.4, 0.4, 1.0, 1.0);
     
@@ -24,5 +25,6 @@ void main()
                  
     colorVarying = diffuseColor * nDotVP;
     
+    // gl_Position is predefined object that carries the position of the current vertex.
     gl_Position = modelViewProjectionMatrix * position;
 }
